@@ -6,8 +6,11 @@ CFLAGS  = -Wall -O2 -ffreestanding -nostdinc -nostdlib -mcpu=cortex-a72
 
 all: kernel8.img
 
-kernel8.img: boot.o kernel.o
-	$(LD) -T link.ld boot.o kernel.o -o kernel8.elf
+vectors.o: vectors.S
+	$(CC) $(CFLAGS) -c vectors.S -o vectors.o
+
+kernel8.img: boot.o vectors.o kernel.o
+	$(LD) -T link.ld boot.o vectors.o kernel.o -o kernel8.elf
 	$(OBJCOPY) -O binary kernel8.elf kernel8.img
 
 boot.o: boot.S
