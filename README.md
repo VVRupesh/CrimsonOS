@@ -1,7 +1,7 @@
 
 # CrimsonOS 🚀
 
-From-scratch ARM64 (AArch64) kernel
+ARM64 (AArch64) kernel
 
 ## Quick Boot
 1. Install ARM toolchain: https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads
